@@ -1,0 +1,97 @@
+.todoForm {
+    margin-bottom: 30px;
+}
+
+.inputGroup {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.todoInput {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.todoInput:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.todoInput::placeholder {
+  color: #95a5a6;
+}
+
+.submitButton {
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(45deg, #2980b9, #3498db);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.buttonText {
+  display: inline;
+}
+
+.buttonIcon {
+  display: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.inputHint {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .inputGroup {
+    flex-direction: column;
+  }
+  
+  .submitButton {
+    width: 100%;
+    padding: 12px;
+  }
+  
+  .buttonText {
+    display: none;
+  }
+  
+  .buttonIcon {
+    display: inline;
+  }
+}
