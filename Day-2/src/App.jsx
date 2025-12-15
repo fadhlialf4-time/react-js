@@ -1,44 +1,52 @@
 import { useState } from "react";
-import LoginButton from "./components/LoginButton";
-import Mailbox from "./components/Mailbox";
-import PageStatus from "./components/PageStatus";
+// import LoginButton from "./components/LoginButton";
+// import Mailbox from "./components/Mailbox";
+// import PageStatus from "./components/PageStatus";
 
-function App() {
-  const [showWarning, setShowWarning] = React.useState(true);
-  const [dataStatus, setDataStatus] = React.useState('loading');
+// import Greeting from './components/Greeting';
+// function App() {
+//   return (
+//     <div>
+//       <h2>Conditional Rendering dengan if/else</h2>
+//       <Greeting isLoggedIn={true}/>
+//       <Greeting isLoggedIn={false}/>
+//     </div>
+//   );
+// }
 
-  const toggleWarning = () => {
-    setShowWarning(prev => !prev);
-  };
+// export default App;
 
-  const changeStatus = () => {
-    const statuses = ['loading', 'success', 'error', 'unknown'];
-    const currentIndex = statuses.indexOf(dataStatus);
-    const nextIndex = (currentIndex + 1) % statuses.length;
-    setDataStatus(statuses[nextIndex]);
-  };
+// Nomor 1
+function Greeting({ isLoggedIn }) {
+  let content;
 
+  if (isLoggedIn) {
+    content = <h1>Selamat datang kembali!</h1>;
+  } else {
+    content = <h1>Silakan login terlebih dahulu.</h1>;
+  }
+
+  return <div>{content}</div>;
+}
+
+function Status({ isOnline }) {
   return (
     <div>
-      <h2>Conditional Rendering dengan Switch Statement</h2>
-      {showWarning && (
-        <div style={{backgroundColor: 'yellow', padding: '10px', border: '1px solid orange'}}>
-          Peringatan!
-        </div>
-      )}
-      
-      <WarningBanner warn={showWarning} />
-      <button onClick={toggleWarning}>
-        {showWarning ? 'Sembunyikan' : 'Tampilkan'} Peringatan
-      </button>
-
-      <hr />
-
-      <h3>Status Data:</h3>
-      <PageStatus status={dataStatus} />
-      <button onClick={changeStatus}>Ubah Status</button>
+      {isOnline ? <p>🟢 Online</p> : <p>🔴 Offline</p>}
     </div>
   );
 }
 
-export default App;
+function Mailbox({ unreadMessages }) {
+  return (
+    <div>
+      <h2>Halo!</h2>
+
+      {unreadMessages.length > 0 && (
+        <p>Anda punya {unreadMessages.length} pesan belum dibaca.</p>
+      )}
+    </div>
+  );
+}
+
+export default App
